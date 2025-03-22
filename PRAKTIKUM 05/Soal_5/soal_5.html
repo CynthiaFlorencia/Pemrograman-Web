@@ -1,0 +1,77 @@
+<!--Praktikum 05-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2373016 - Cynthia Florencia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            display: flex;
+            list-style: none;
+            padding: 10px;
+            background-color: white;
+        }
+        .navbar li {
+            position: relative;
+            padding: 10px 20px;
+            margin-right: 3px;
+            border: 2px dotted black; 
+        }
+        .navbar li:last-child {
+            margin-right: 0; 
+        }
+        .news ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            width: 100%;
+            list-style-type: none;
+            border: 2px dotted black;
+            padding: 0;
+        }
+        .news:hover ul {
+            display: block;
+        }
+        .news ul li {
+            padding: 8px;
+            text-align: center;
+            margin: 0;
+            border: 2px dotted black;
+            width: 100%;
+        }
+        .news ul li a {
+            display: block;
+            padding: 5px;
+            color: black;
+        }
+        .news ul li:hover {
+            background-color: black;
+        }
+        .news ul li:hover a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li class="news">
+            <a href="#">News</a>
+            <ul>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Movie</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</body>
+</html>
