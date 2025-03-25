@@ -1,0 +1,49 @@
+<!--Praktikum 06-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2373016 - Cynthia Florencia</title>
+        <style>
+            table{
+                border-collapse: collapse;
+                margin: 20px auto;
+                width: 200px;
+            }
+            td{
+                text-align: center;
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body onload="hasil()">
+        <div id="result"></div>
+
+        <script>
+            function hasil(){
+                let angka;
+                while(true){
+                    angka = prompt("a number?");
+                    if(angka === null || angka.trim() === "" || isNaN(angka)){
+                        alert("Harap masukkan angka yang valid!")
+                    } else if(angka=parseInt(angka)){
+                        break;
+                    }
+                }
+
+                let tableHTML = "<table>";
+                for(let i=1; i<=angka; i++){
+                    tableHTML += `<tr>
+                    <td>${i}</td>
+                    <td>x</td>
+                    <td>${angka}</td>
+                    <td>=</td>
+                    <td>${i * angka}</td>
+                </tr>`;
+                }
+                tableHTML += "</table>";
+                document.getElementById("result").innerHTML = tableHTML
+            }
+        </script>
+    </body>
+</html>
