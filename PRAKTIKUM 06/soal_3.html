@@ -1,0 +1,62 @@
+<!--Praktikum 06-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2373016 - Cynthia Florencia</title>
+        <style>
+            #container{
+                width: 800px;
+                height: 600px;
+                display: flex;
+                margin: 20px auto;
+                justify-content: center;
+            }
+            table{
+                border-collapse: collapse;
+                margin: 2px auto;
+            }
+            td{
+                background-color: orange;
+                border: 1px solid white;
+                width: 30px;
+                height: 40px;
+            }
+            button{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <label for="tpiramid">Tinggi Piramida :</label>
+        <input type="text" id="tpiramid">
+        <button onclick="piramida()">Proses</button>
+        <table id="piramida"></table>
+
+        <script>
+            function piramida() {
+                let tinggi = parseInt(document.getElementById("tpiramid").value);
+                let piramida = document.getElementById("piramida");
+                piramida.innerHTML = "";
+                if (isNaN(tinggi) || tinggi <= 0) {
+                    alert("Masukkan tinggi piramida yang valid (minimal 1)!");
+                    return;
+                }
+
+                for (let i = 1; i <= tinggi; i++) {
+                    let row = document.createElement("tr");
+                    for (let j = 0; j < tinggi - i; j++) {
+                        let emptyCell = document.createElement("td");
+                        emptyCell.style.background = "white";
+                        row.appendChild(emptyCell);
+                    }
+                    for (let k = 0; k < (2 * i - 1); k++) {
+                        let cell = document.createElement("td");
+                        row.appendChild(cell);
+                    }
+                    piramida.appendChild(row);
+                }
+            }
+        </script>
+    </body>
+</html>
