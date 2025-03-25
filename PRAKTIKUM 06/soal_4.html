@@ -1,0 +1,100 @@
+<!--Praktikum 06-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2373016 - Cynthia Florencia</title> 
+        <style>
+            #container {
+                border: 2px solid gray;
+                color: blue;
+                font-weight: bold;
+                width: 100px;
+            }
+            button {
+                color: blue;
+                font-weight: bold;
+            }
+            td {
+                border: 1px solid gray;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="container">
+                    <label for="input">Input :</label>
+                </td>
+                <td>
+                    <input type="text" id="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="container">
+                    <label for="output">Output :</label>
+                </td>
+                <td>
+                    <input type="text" id="output" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <select id="pilihan">
+                        <option value="decimal-binary">Decimal-Biner</option>
+                        <option value="binary-decimal">Biner-Decimal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="convert()">PROSES</button>
+                    <button class="button" onclick="resetForm()">RESET</button>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            function resetForm() {
+                document.getElementById("input").value = "";
+                document.getElementById("output").value = "";
+            }
+
+            function convert() {
+                let input = document.getElementById("input").value.trim();
+                let tipe = document.getElementById("pilihan").value;
+                let output = document.getElementById("output");
+
+                if (tipe === "decimal-binary") {
+                    let angka = parseInt(input);
+                    if (isNaN(angka) || angka < 0 || angka > 255) {
+                        alert("Masukkan angka antara 0 - 255!");
+                        return;
+                    }
+                    let biner = "";
+                    let temp = angka;
+                    while (temp > 0) {
+                        biner = (temp % 2) + biner;
+                        temp = Math.floor(temp / 2);
+                    }
+                    while (biner.length < 8) {
+                        biner = "0" + biner;
+                    }
+                    output.value = biner;
+                } else if (tipe === "binary-decimal") {
+                    if (!/^[01]{1,8}$/.test(input)) {
+                        alert("Masukkan angka biner (hanya 0 dan 1, maksimal 8 digit)!");
+                        return;
+                    }
+                    let dec = 0;
+                    let length = input.length;
+                    for (let i = 0; i < length; i++) {
+                        dec += parseInt(input[i]) * Math.pow(2, length - i - 1);
+                    }
+                    output.value = dec;
+                }
+            }
+        </script>
+    </body>
+</html>
