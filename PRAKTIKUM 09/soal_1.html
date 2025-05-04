@@ -1,0 +1,71 @@
+<!--Praktikum 09-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .form-container {
+      width: 400px;
+      padding: 10px;
+    }
+    label {
+      display: inline-block;
+      width: 80px;
+      vertical-align: top;
+      margin-top: 6px;
+    }
+    input[type="text"], textarea {
+      width: 280px;
+      padding: 5px;
+      margin-bottom: 10px;
+      resize: none;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+    }
+    .char-container {
+      display: flex;
+      justify-content: flex-end;
+      width: 280px;
+    }
+    .char-counter {
+      font-size: 12px;
+      border: none;
+      background: none;
+      text-align: right;
+    }
+  </style>
+  <title>2373016 - Cynthia Florencia</title>
+</head>
+<body>
+  <div class="form-container">
+    <div>
+      <label for="judul">Judul :</label>
+      <input type="text" id="judul" name="judul">
+    </div>
+    <div>
+      <label for="deskripsi">Deskripsi :</label>
+      <div style="display:inline-block">
+        <textarea id="deskripsi" name="deskripsi" onkeyup="call_onKeyPress(this)"></textarea>
+        <div class="char-container">
+          <input type="text" id="txt2" class="char-counter" readonly value="0/256">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function call_onKeyPress(ob) {
+      let obval = ob.value;
+      const maxLength = 256;
+      if (obval.length > maxLength) {
+        ob.value = obval.substr(0, maxLength);
+        obval = ob.value;
+      }
+      document.getElementById("txt2").value = obval.length + "/256";
+    }
+  </script>
+</body>
+</html>
