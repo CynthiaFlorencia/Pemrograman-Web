@@ -1,0 +1,116 @@
+<!--Praktikum 09-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2373016 - Cynthia Florencia</title>
+    <style>
+        .form-row {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 60px;
+            vertical-align: top;
+            margin-right: 10px;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+        }
+        select {
+            margin-left: 15px;
+            padding: 5px;
+            width: 135px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+        #hasil {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="form-row">
+            <label for="dataInput">Data</label>
+            <input type="text" id="dataInput" />
+        </div>
+        <div class="form-row">
+            <button onclick="addData()">Add</button>
+            <select id="operation" onchange="process()">
+                <option value="pilih">Pilih Operasi</option>
+                <option value="display">Display</option>
+                <option value="count">Count</option>
+                <option value="sum">Sum</option>
+                <option value="average">Average</option>
+                <option value="max">Max</option>
+                <option value="min">Min</option>
+                <option value="ganjil">Ganjil</option>
+                <option value="genap">Genap</option>
+                <option value="hapus">Hapus</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="hasil">Hasil</label>
+            <input type="text" id="hasil" readonly />
+        </div>
+    </div>
+
+    <script>
+        let dataArray = [];
+        function addData() {
+            const input = document.getElementById("dataInput");
+            const value = parseInt(input.value);
+            if (!isNaN(value)) {
+                dataArray.push(value);
+                input.value = "";
+                input.focus();
+            } else {
+                alert("Masukkan angka yang valid!");
+            }
+        }
+
+        function process() {
+            const op = document.getElementById("operation").value;
+            let result = "";
+            switch (op) {
+                case "display":
+                    result = dataArray.join(", ");
+                    break;
+                case "count":
+                    result = dataArray.length;
+                    break;
+                case "sum":
+                    result = dataArray.reduce((a, b) => a + b, 0);
+                    break;
+                case "average":
+                    result = dataArray.length ? (dataArray.reduce((a, b) => a + b, 0) / dataArray.length).toFixed(2) : 0;
+                    break;
+                case "max":
+                    result = dataArray.length ? Math.max(...dataArray) : "Array kosong";
+                    break;
+                case "min":
+                    result = dataArray.length ? Math.min(...dataArray) : "Array kosong";
+                    break;
+                case "ganjil":
+                    result = dataArray.filter(n => n % 2 !== 0).join(", ");
+                    break;
+                case "genap":
+                    result = dataArray.filter(n => n % 2 === 0).join(", ");
+                    break;
+                case "hapus":
+                    dataArray = [];
+                    result = "";
+                    break;
+                default:
+                    result = "";
+            }
+            document.getElementById("hasil").value = result;
+        }
+    </script>
+</body>
+</html>
