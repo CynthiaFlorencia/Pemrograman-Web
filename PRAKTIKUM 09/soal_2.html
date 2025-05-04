@@ -1,0 +1,76 @@
+<!--Praktikum 09-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px 12px;
+        }
+        th {
+            background-color: #AABBAA;
+        }
+        .biru {
+            background-color: #AACCFF;
+        }
+        .pastel {
+            background-color: #FFCCAA;
+        }
+        .c3 {
+            background-color: #CCFFAA !important;
+        }
+    </style>
+    <script>
+        function hoverRow(row) {
+            row.dataset.originalClass = row.className; 
+            row.className = "c3";
+        }
+
+        function unhoverRow(row) {
+            row.className = row.dataset.originalClass;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Position</th>
+            <th>Programming Language</th>
+            <th>Ratings</th>
+        </tr>
+        <tr class="biru" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+            <td>1</td>
+            <td>C</td>
+            <td>18.058%</td>
+        </tr>
+        <tr class="pastel" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+            <td>2</td>
+            <td>Java</td>
+            <td>18.051%</td>
+        </tr>
+        <tr class="biru" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+            <td>3</td>
+            <td>C++</td>
+            <td>9.707%</td>
+        </tr>
+        <tr class="pastel" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+            <td>4</td>
+            <td>PHP</td>
+            <td>9.662%</td>
+        </tr>
+        <tr class="biru" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+            <td>5</td>
+            <td>(Visual) Basic</td>
+            <td>6.392%</td>
+        </tr>
+    </table>
+</body>
+</html>
