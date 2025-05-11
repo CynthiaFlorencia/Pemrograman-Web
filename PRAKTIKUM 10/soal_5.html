@@ -1,0 +1,56 @@
+<!--Praktikum 10-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <script src="jquery.js"></script>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            margin: 2px 0;
+            padding: 1px;
+        }
+        .highlight{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" class="input">
+        <div>Sun Microsystem</div>
+        <div>Apache Software Foundation</div>
+        <div>Oracle Coorporation</div>
+        <div>International Business Machines</div>
+        <div>Microsoft Coorporation</div>
+        <div>Apple Inc</div>
+        <div>Sap Ag</div>
+        <div>Accenture</div>
+        <div>Computer Sciences Coorporation</div>
+        <div>Google</div>
+        <div>Softbank</div>
+        <div>Yahoo</div>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+			$(".input").on("input", function () {
+				var searchText = $(this).val().toLowerCase(); 
+				$("div").each(function () {
+					var text = $(this).text().toLowerCase(); 
+					if (text.includes(searchText) && searchText !== "") {
+						$(this).addClass("highlight"); 
+					} else {
+						$(this).removeClass("highlight");
+					}
+				});
+			});
+		});
+    </script>
+</body>
+</html>
