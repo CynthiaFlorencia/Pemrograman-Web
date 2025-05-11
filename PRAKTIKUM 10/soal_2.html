@@ -1,0 +1,46 @@
+<!--Praktikum 10-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <style>
+        .underline{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+        <form>
+            <input type="text" class="input">
+            <input type="submit" value="Add" class="add">
+            <input type="button" value="Search" class="search">
+        </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+			$(".container div").css("text-decoration", "none");
+			$(".add").click(function (event) {
+				event.preventDefault(); 
+				var inputValue = $(".input").val(); 
+				if (inputValue) {
+					$("<div>" + inputValue + "</div>").appendTo(".container");
+				}
+			});
+
+			$(".search").click(function () {
+				var inputValue = $(".input").val(); 
+				$(".container div").css("text-decoration", "none");
+				$(".container div:contains('" + inputValue + "')").css("text-decoration", "underline");
+			});
+		});
+    </script>
+</body>
+</html>
