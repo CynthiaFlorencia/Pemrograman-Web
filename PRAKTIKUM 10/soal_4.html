@@ -1,0 +1,51 @@
+<!--Praktikum 10-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <script src="jquery.js"></script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <input class="header" type="checkbox"> <br>
+            </td>
+            <tr>
+                <td>
+                    <input class="body" type="checkbox"> <br>
+                    <input class="body" type="checkbox"> <br>
+                    <input class="body" type="checkbox"> <br>
+                    <input class="body" type="checkbox"> <br>
+                </td>
+            </tr>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $(".header").change(function () {
+                $(".body").prop("checked", this.checked); 
+            });
+            
+            $(".body").change(function () {
+                const allChecked = $(".body:checked").length === $(".body").length; 
+                $(".header").prop("checked", allChecked); 
+            });
+        });
+    </script>
+</body>
+</html>
