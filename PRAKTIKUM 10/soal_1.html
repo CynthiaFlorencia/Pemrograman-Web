@@ -1,0 +1,96 @@
+<!--Praktikum 10-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>2373016 - Cynthia Florencia</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style>
+		.jquery, .community, .development{
+			float: left;
+			background: #F53193;
+			border: 2px solid #F53193;
+			width: 130px;
+			margin-left: 10px;
+			text-decoration: underline;
+			text-decoration-color: white ;
+		}
+		a{
+			color: black;
+		}
+		.menu{
+			color: white;
+		}
+		li{
+			background-color: white;
+			text-decoration: underline;
+		}
+		ol{
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ol>
+			<li class="jquery">
+				<a class="menu">jQuery</a>
+				<ol class="dropdownjquery">
+					<li>Download</li>
+					<li>Documentation</li>
+					<li>Blog</li>
+				</ol>
+			</li>
+
+			<li class="community">
+				<a class="menu">Community</a>
+				<ol class="dropdowncommunity">
+					<li>Mailing List</li>
+					<li>Tutorials</li>
+					<li>Demos</li>
+					<li>Plugins</li>
+				</ol>
+			</li>
+
+			<li class="development">
+				<a class="menu">Development</a>
+				<ol class="dropdowndevelopment">
+					<li>Source Code</li>
+					<li>Bug Tracking</li>
+					<li>Recent Changes</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			$(".dropdownjquery").hide();
+			$(".dropdowncommunity").hide();
+			$(".dropdowndevelopment").hide();
+
+			$(".jquery").hover(function() {
+				$(".dropdownjquery").show(200);
+			},function () {
+				$(".dropdownjquery").hide(200);
+			})
+			
+			$(".community").hover(function () {
+				$(".dropdowncommunity").show(200);
+			},function () {
+				$(".dropdowncommunity").hide(200);
+			})
+
+			$(".development").hover(function () {
+				$(".dropdowndevelopment").show(200);
+			},function () {
+				$(".dropdowndevelopment").hide(200);
+			})
+		})
+	</script>
+</body>
+</html>
