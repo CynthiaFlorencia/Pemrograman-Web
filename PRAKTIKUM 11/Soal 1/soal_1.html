@@ -1,0 +1,94 @@
+<!--Praktikum 11-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <style>
+        .radiogroup{
+            padding: 10px;
+            width: 200px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th{
+            background-color: black;
+            color: white;
+        }
+        tr:nth-child(even){
+            background-color: #CCFFAA;
+        }
+        tr:nth-child(odd){
+            background-color: #FFFFCC;
+        }
+    </style>
+</head>
+<body>
+    <h2>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A 
+        Pemrograman Web SI Tahun Ajaran 2023/2024</h2>
+    <div class="radiogroup">
+        <input type="radio" name="choice" value="all" checked>All <br>
+        <input type="radio" name="choice" value="A"> Kelas A <br>
+        <input type="radio" name="choice" value="B"> Kelas B <br>
+        <button onclick="search()">Search</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function search() {
+			var choice = $(":radio[name='choice']:checked").val();
+			var link = "";
+
+			if (choice === "all") {
+				link = "nilai.js";
+			} else if (choice === "A") {
+				link = "nilaiA.js";
+			} else if (choice === "B") {
+				link = "nilaiB.js";
+			}
+
+			$.getJSON(link, function (data) {
+				displayData(data.nilai);
+			});
+		}
+
+		function displayData(data) {
+			var table = $(".table tbody");
+			table.empty(); 
+
+			data.forEach(function (item) {
+				var row = $("<tr>").append(
+					$("<td>").text(item.nrp),
+					$("<td>").text(item.nama),
+					$("<td>").text(item.kelas),
+					$("<td>").text(item.nilaiakhir)
+				);
+				table.append(row);
+			});
+		}
+    </script>
+</body>
+</html>
