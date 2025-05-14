@@ -1,0 +1,74 @@
+<!--Praktikum 11-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <style>
+        table{
+            border: 1px solid black;
+            width: 800px;
+            margin: 10px 0;
+        }
+        td{
+            border: 1px solid black;
+            vertical-align: top;
+        }
+        h1{
+            font-size: 30px;
+            color: blue;
+            text-align: center;
+        }
+        a{
+            text-decoration: underline;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td id="title">Title</td>
+            </tr>
+            <tr>
+                <td id="content">Content</td>
+            </tr>
+            <tr>
+                <td id="generator">Generator</td>
+            </tr>
+        </table>
+        <button class="look">Look</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+			$(".look").click(function () {
+				$.getJSON("SIJson.txt", function (data) {
+					$("#title").empty();
+					$("#content").empty();
+					$("#generator").empty();
+					$("#title").append("<a href='" + data.link + "'><h1>" + data.title + "</h1></a>");
+					data.items.forEach(function (item) {
+						$("#content").append(
+							"<a href='" +
+								item.link + "'>" +
+								item.title + "</a> <br>" +
+								"By " + item.author +
+								" / <i>" + item.published +
+								"</i><br><br>" + item.description +
+								"<br><br>" + "Universitas : <a href='" +
+								item.universitas.m + "'> Click Here</a><br>" +
+								"Tag(s): " + item.tags + "<br><br>"
+						);
+					});
+					$("#generator").append("&#169; " + data.generator);
+				});
+			});
+		});
+    </script>
+</body>
+</html>
