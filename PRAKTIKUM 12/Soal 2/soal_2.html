@@ -1,0 +1,85 @@
+<!--Praktikum 12-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container{
+            width: 300px;
+            margin: auto;
+            text-align: left;
+        }
+        .login-header{
+            background-color: #000080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        label, input{
+            display: block;
+            margin: 10px 0;
+        }
+        input[type="text"], input[type="password"] {
+            width: 94%;
+            padding: 8px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000080;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-header">
+            <h2>Login</h2>
+        </div>
+        <form action="login.php" method="POST">
+            <table>
+                <tr>
+                    <td style="width: 105px">
+                        <label for="username">Username</label>
+                    </td>
+                    <td>
+                        <input type="text" id="username" name="username" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Password</label>
+                    </td>
+                    <td>
+                        <input type="password" id="password" name="password" required>
+                    </td>
+                </tr>
+            </table>
+            
+            
+            <input type="submit" value="Login">
+        </form>
+        <hr>
+        <div class="footer">
+            <p>@UKM2014</p>
+            <p>Cynthia Florencia - 2373016<sup>&copy;</sup></p>
+        </div>
+</body>
+</html>
