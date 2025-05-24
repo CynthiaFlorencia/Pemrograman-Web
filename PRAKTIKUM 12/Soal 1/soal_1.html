@@ -1,0 +1,81 @@
+<!--Praktikum 12-->
+<!--2373016 - Cynthia Florencia-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373016 - Cynthia Florencia</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .title{
+            text-align: center;
+            background-color: #bbbbbb;
+            height: 30px;
+            font-size: x-large;
+        }
+        table{
+            border-collapse: collapse;
+            margin: auto;
+            width: 50%;
+        }
+        td{
+            border: 1px solid;
+            padding: 8px;
+        }
+        .button-container{
+            text-align: center;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="profile.php" method="POST">
+        <table>
+            <tr>
+                <td class="title" colspan="2">Add Profile</td>
+            </tr>
+            <tr>
+                <td><label for="name">Name :</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="position">Position :</label></td>
+                <td>
+                    <select id="position" name="position">
+                        <optgroup label="Programmer">
+                            <option value="Senior Programmer">Senior Programmer</option>
+                            <option value="Junior Programmer">Junior Programmer</option>
+                        </optgroup>
+                        <optgroup label="System Analyst">
+                            <option value="System Analyst">System Analyst</option>
+                            <option value="Junior Analyst">Junior Analyst</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password :</label></td>
+                <td><input type="password" id="password" name="password"></td>
+            </tr>
+            <tr>
+                <td><label for="confirmPassword">Confirm Password:</label></td>
+                <td><input type="password" id="confirmPassword" name="confirmPassword"></td>
+            </tr>
+            <tr>
+                <td class="button-container" colspan="2">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
